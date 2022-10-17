@@ -92,3 +92,6 @@ forma:
         }.attach()
 ```
 
+## Práctica
+
+Replicar el Tab Layout de la aplicación móvil de Facebook: https://github.com/gitfrandu4/android-ex-tabs-facebook
