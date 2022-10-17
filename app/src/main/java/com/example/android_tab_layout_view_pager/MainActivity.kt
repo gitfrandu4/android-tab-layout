@@ -2,11 +2,13 @@ package com.example.android_tab_layout_view_pager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.android_tab_layout_view_pager.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,8 +45,24 @@ class MainActivity : AppCompatActivity() {
 
                 return GreenFragment()
             }
-
         }
         myViewPager2.adapter = adapter
+
+        TabLayoutMediator(myTabLayout, myViewPager2) { tab, position ->
+            when(position) {
+                0 -> {
+                    tab.text = "Inicio"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_book_24)
+                }
+                1 -> {
+                    tab.text = "Rojo"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_book_24)
+                }
+                2 -> {
+                    tab.text = "verde"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_baseline_book_24)
+                }
+            }
+        }.attach()
     }
 }
